@@ -17,7 +17,6 @@ public class P01 {
                 sum += newElements[j];
                 set.add(sum);
             }
-
         }
         System.out.println(set.size());
     }

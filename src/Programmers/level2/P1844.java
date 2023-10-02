@@ -13,7 +13,7 @@ class Solution1844 {
 
         return min_cnt;
     }
-
+    //시간초과 -> 넓이 우선 탐색을 적용해야해
     public int dfs(int x, int y, int[][] maps, int[][] visited, int cnt) {
         int rows = maps[0].length;//width
         int cols = maps.length;//height

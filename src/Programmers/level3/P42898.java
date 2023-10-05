@@ -18,10 +18,10 @@ class Solution42898 {
                     continue;
                 }
                 if(i != 0){
-                    street[i][j] += street[i-1][j];
+                    street[i][j] += street[i-1][j] % 1000000007;
                 }
                 if(j != 0){
-                    street[i][j] += street[i][j-1];
+                    street[i][j] += street[i][j-1] % 1000000007;
                 }
             }
         }

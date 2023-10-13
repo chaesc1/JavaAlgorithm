@@ -20,7 +20,7 @@ public class P2583 {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
         map = new int[N][M];
-        
+        visited = new boolean[N][M];
         int K = Integer.parseInt(st.nextToken()); 
         for (int i = 0; i < K; i++) {
             st = new StringTokenizer(br.readLine()," ");
@@ -40,9 +40,10 @@ public class P2583 {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                if(map[i][j] == 0){
+                if(map[i][j] == 0 && !visited[i][j]){
                     count = 0;
-                    dfs(i,j);
+//                    dfs(i,j);
+                    bfs(i,j);
                     list.add(count);
                 }
             }
@@ -70,6 +71,37 @@ public class P2583 {
                if(map[nx][ny] == 0){
                    dfs(nx,ny);
                }
+            }
+        }
+    }
+
+    public static void bfs(int x,int y){
+        //큐 생성
+        Queue<int []> queue = new LinkedList<>();
+        queue.offer(new int[] {x,y});
+        visited[x][y] = true;
+        count++;
+
+        //큐가 빌때까지 반복
+        while (!queue.isEmpty()){
+            int curX = queue.peek()[0];
+            int curY = queue.peek()[1];
+            queue.poll();
+
+            //4방향 탐색
+            for (int i = 0; i < 4; i++) {
+                int nx = curX + dx[i];
+                int ny = curY + dy[i];
+
+                if(0<=nx && nx < N && 0 <= ny && ny < M){
+                    //방문하지 않고 영역이면?
+                    if(!visited[nx][ny] && map[nx][ny] == 0){
+                        //방문표시
+                        visited[nx][ny] = true;
+                        queue.offer(new int[] {nx,ny});
+                        count++;
+                    }
+                }
             }
         }
     }

@@ -28,6 +28,7 @@ public class DS_PriorityQueue {
 
         //값 삭제 - poll, remove, clear
         priorityQueueLowest.poll();//우선순위가 가장 높은 값을 제거
+//        priorityQueueLowest.peek();
         System.out.println(priorityQueueLowest);
 
         priorityQueueLowest.remove();//우선순위가 가장 높은 값을 제거

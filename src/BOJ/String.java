@@ -1,2 +1,7 @@
-package BOJ;public class String {
+package BOJ;
+
+public class String {
+    public static void main(String[] args) {
+
+    }
 }

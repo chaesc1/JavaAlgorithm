@@ -1,4 +1,4 @@
-package BOJ.StackQueue;
+package BOJ.StackQueueDeque;
 
 import java.util.LinkedList;
 import java.util.Queue;

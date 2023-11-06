@@ -1,10 +1,9 @@
-package BOJ.StackQueue;
+package BOJ.StackQueueDeque;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
-import java.util.Scanner;
 
 //절댓값 힙은 다음과 같은 연산을 지원하는 자료구조이다.
 //

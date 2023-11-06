@@ -1,4 +1,4 @@
-package BOJ.StackQueue;
+package BOJ.StackQueueDeque;
 
 import java.util.Scanner;
 import java.util.Stack;

@@ -11,7 +11,7 @@ public class P24480 {
     static ArrayList<ArrayList<Integer>> graph = new ArrayList<>(); //정점 저장 그래프
     static int[] check; //방문 체크 배열
     static int count; // 방문 순서.
-
+    static int MIN = Integer.MAX_VALUE;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());

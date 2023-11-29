@@ -23,9 +23,9 @@ public class test1 {
 //        visited = new boolean[lines][lines];
 
         for(int i=0; i<lines; i++){
-            st = new StringTokenizer(br.readLine());
+            String s = br.readLine();
             for(int j=0; j<lines; j++) {
-                area[i][j] = Integer.parseInt(st.nextToken());
+                area[i][j] = Integer.parseInt(String.valueOf(s.charAt(j)));
             }
         }
         count = new ArrayList<>(); // 카운트 담을 array

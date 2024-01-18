@@ -1,12 +1,13 @@
 package BOJ.Implement;
-public class NHN {
+public class toBinary {
     public static void main(String[] args) {
         
         int num = 24;
-        
+        String s = "24";
+        System.out.println("String to Int"+Integer.toString(Integer.parseInt(s),2));
         String binaryString = Integer.toBinaryString(24);
         System.out.println("binaryString = " + binaryString);
-
+        System.out.println(Integer.toString(num,2));
         String answer = toBinary(num);
 
         System.out.println("answer = " + answer);

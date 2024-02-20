@@ -20,7 +20,13 @@ public class P2579 {
             stairs[i] = Integer.parseInt(st.nextToken());
         }
         scores[1] = stairs[1];
-        scores[2] = stairs[2];
-        scores[3] = stairs[3];
+        scores[2] = stairs[1] + stairs[2];
+        scores[3] = Math.max(stairs[1], stairs[2]) + stairs[3];
+
+        for (int i = 4; i <= N; i++) {
+            scores[i] = Math.max(scores[i-3] + stairs[i-1] , scores[i-2]) + stairs[i];
+        }
+
+        System.out.println(scores[N]);
     }
 }

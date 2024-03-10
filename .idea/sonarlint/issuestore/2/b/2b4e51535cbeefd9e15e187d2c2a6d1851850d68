@@ -1,0 +1,9 @@
+
+K
+java:S1121;".Extract the assignment out of this expression.(£Ø‹8ÜÅØ¸á1
+P
+java:S1121>".Extract the assignment out of this expression.(ÏÊŸÒÿÿÿÿÿ8ÜÅØ¸á1
+^
+java:S21845"BCast one of the operands of this addition operation to a "double".(ÍÂ¢t8İÅØ¸á1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(°…ÃÌ8ÕÙÕ¸á1
+G	java:S106)"+Replace this use of System.out by a logger.(›¦ÿ˜8íÅØ¸á1

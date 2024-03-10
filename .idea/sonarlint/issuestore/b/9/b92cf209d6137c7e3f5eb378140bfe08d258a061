@@ -1,0 +1,18 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡¢‰òÿÿÿÿÿ
+b
+java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğ
+b
+java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğ
+b
+java:S3008"LRename this field "X" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğ
+T
+java:S1659">Declare "M" and all following declarations on a separate line.(î˜±ğ
+t
+java:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(áÂ¦ÿÿÿÿÿ
+@	java:S106D"+Replace this use of System.out by a logger.(ô¤„å
+V	java:S125I"<This block of commented-out lines of code should be removed.(Ğ¢ƒ²øÿÿÿÿ
+E
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ
+N
+java:S1128	"3Remove this unused import 'java.util.NavigableMap'.(õ Ì§ûÿÿÿÿ

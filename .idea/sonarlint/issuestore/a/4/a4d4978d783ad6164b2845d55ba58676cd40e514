@@ -1,8 +1,14 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹¬Àòøÿÿÿÿ8Èþ¼Ôã1
-i
-java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ð ¬ï8Îþ¼Ôã1
-i
-java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ð ¬ï8Îþ¼Ôã1
-<
-java:S1659"Declare "M" on a separate line.(ð ¬ï8Ïþ¼Ôã1
+ 	java:S135$"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆžÿÿÿÿÿ8­¬“ùä1J$6f4e3ce0-ae26-414a-8d7d-d3d3bc952c59
+w
+java:S1066l"/Merge this if statement with the enclosing one.(Ç¢ñÞüÿÿÿÿ8­¬“ùä1J$07af1e28-f385-4210-9abb-ddcfe5e17422
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹¬Àòøÿÿÿÿ8®¬“ùä1J$0c6a98d5-aaac-4b96-bcc4-9ef7eaa70f48
+
+java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ð ¬ï8Œ­“ùä1J$59133c0f-b9bb-4a3c-87a7-aab5993a3a51
+
+java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ð ¬ï8Œ­“ùä1J$e10e2d3a-5ca8-4f16-b12b-824183562fe8
+b
+java:S1659"Declare "M" on a separate line.(ð ¬ï8Œ­“ùä1J$f3782159-f4ea-4e79-9549-26d2646e5c04
+r	java:S1063"+Replace this use of System.out by a logger.(ïÖ Ïýÿÿÿÿ8‘­“ùä1J$220475be-0cec-4fee-8670-0f57ecd6e26e
+š
+java:S3776S"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(„ÄÄ³üÿÿÿÿ8“­“ùä1J$f1324f2e-eb78-457f-a752-1aa88f983d00

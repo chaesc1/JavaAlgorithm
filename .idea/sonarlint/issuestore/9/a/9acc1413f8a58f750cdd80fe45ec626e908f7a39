@@ -1,0 +1,29 @@
+
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïÀ‡ùÿÿÿÿJ$544b06ff-74f6-4e53-8779-164cde55df9a
+f
+java:S1197"*Move the array designators [] to the type.(‹¬ºÃJ$55be7335-be81-44c8-9fa6-0c43630db370
+g
+java:S1481"+Remove this unused "answer" local variable.(åí¢éJ$9c075969-b64f-4197-a059-c9e46a911af5
+w
+java:S2696"6Make the enclosing method "static" or remove this set.(¬İ‰¹ûÿÿÿÿJ$01bb7f3a-7655-442a-9d32-2ab60776afa4
+w
+java:S2696"6Make the enclosing method "static" or remove this set.(°ĞÏ¦úÿÿÿÿJ$ece0ea2d-977d-40e5-8b90-0360e53b2695
+w
+java:S2696"6Make the enclosing method "static" or remove this set.(×Ë®îÿÿÿÿÿJ$bf36e088-ed40-4943-b4fd-e910026ec1a3
+w
+java:S2696"6Make the enclosing method "static" or remove this set.(ÉĞäÚùÿÿÿÿJ$49d3bcbf-a832-4442-a4d6-0d747427ecbf
+w
+java:S2696"6Make the enclosing method "static" or remove this set.(ö’²ÓûÿÿÿÿJ$9da9f034-a142-4ab7-8e51-fb05a8164f31
+w
+java:S2696#"6Make the enclosing method "static" or remove this set.(ÊÁŸìıÿÿÿÿJ$71c5bac0-ce4d-4f12-895b-fdc24b4e2032
+|	java:S125"<This block of commented-out lines of code should be removed.(¨ñ×ÄşÿÿÿÿJ$e07daf29-6069-458b-aa10-5400405896bd
+w
+java:S2696$"6Make the enclosing method "static" or remove this set.(ó¬†³ûÿÿÿÿJ$e43342e1-bf08-487e-97c3-92a3aa732118
+w
+java:S2696&"6Make the enclosing method "static" or remove this set.(Œüı”üÿÿÿÿJ$e8e40539-dc11-4ead-813e-1a0be866cdde
+k	java:S106)"+Replace this use of System.out by a logger.(ôÌÏªúÿÿÿÿJ$8c3a9a99-2aa7-4c1e-9a00-b9870d3bac12
+f	java:S1062"+Replace this use of System.out by a logger.(’­ÜôJ$d24c3522-0d35-49e2-9bbd-a93614c42178
+s
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿJ$2e540038-794e-4617-bbc0-ff76908e046e
+u
+java:S1128"4Remove this unused import 'java.util.PriorityQueue'.(ÆãÑşøÿÿÿÿJ$0563963d-af0b-4851-946b-d37389abe2e5

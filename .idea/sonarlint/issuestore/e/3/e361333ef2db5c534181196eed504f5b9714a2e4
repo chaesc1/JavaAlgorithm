@@ -1,9 +1,9 @@
 
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•Â…¿
-h
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(•Â…¿J$eb8428d7-89b0-442e-a84b-02af9bb7b63d
+Ž
 java:S3776
-"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(œû¿Ø
-P
-java:S1854"5Remove this useless assignment to local variable "t".(³©ó­øÿÿÿÿ
-A
-java:S1481"&Remove this unused "t" local variable.(³©ó­øÿÿÿÿ
+"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(œû¿ØJ$ee756b2c-dc88-4dae-bfcf-78295bf8af8b
+v
+java:S1854"5Remove this useless assignment to local variable "t".(³©ó­øÿÿÿÿJ$6fba6d1e-25e7-4df7-bf55-e3d104ad7267
+g
+java:S1481"&Remove this unused "t" local variable.(³©ó­øÿÿÿÿJ$932f0ff3-1170-4d39-b040-78d729887745

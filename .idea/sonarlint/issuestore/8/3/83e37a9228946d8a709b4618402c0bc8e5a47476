@@ -1,10 +1,10 @@
 
-K
-java:S1121".Extract the assignment out of this expression.(£Ø‹8¥é‰á1
-P
-java:S1121".Extract the assignment out of this expression.(ÏÊŸÒÿÿÿÿÿ8¥é‰á1
-n	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ˆ›¥Õûÿÿÿÿ8¦é‰á1
-7
-java:S1220""Move this file to a named package.8¦é‰á1
-_
-java:S2184"BCast one of the operands of this addition operation to a "double".(»¹³Ì8¦é‰á1
+q
+java:S1121".Extract the assignment out of this expression.(£Ø‹8¥é‰á1J$0afb7335-45a7-4116-b427-470dc7bac5b6
+v
+java:S1121".Extract the assignment out of this expression.(ÏÊŸÒÿÿÿÿÿ8¥é‰á1J$075f3ef7-8c9f-4a30-8e07-b402c0554f3b
+”	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ˆ›¥Õûÿÿÿÿ8¦é‰á1J$cfca33a0-2d5d-439f-a15b-0f9cb615d420
+]
+java:S1220""Move this file to a named package.8¦é‰á1J$c7bf1990-7483-43d2-860d-2b3638ac8eda
+…
+java:S2184"BCast one of the operands of this addition operation to a "double".(»¹³Ì8¦é‰á1J$7237f861-717f-4e9f-bbde-1f1fcaa40333

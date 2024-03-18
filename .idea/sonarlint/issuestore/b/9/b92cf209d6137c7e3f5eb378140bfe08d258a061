@@ -1,18 +1,18 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡¢‰òÿÿÿÿÿ
-b
-java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğ
-b
-java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğ
-b
-java:S3008"LRename this field "X" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğ
-T
-java:S1659">Declare "M" and all following declarations on a separate line.(î˜±ğ
+š	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡¢‰òÿÿÿÿÿJ$97726a64-4abe-4a6d-82ad-fc6a6263cd2b
+ˆ
+java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğJ$cfc3efc4-152a-4044-9a3e-a7e19c2cef3a
+ˆ
+java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğJ$4edd895c-cd5f-4f1b-86b5-37f2eceda6e7
+ˆ
+java:S3008"LRename this field "X" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î˜±ğJ$d0b9b95f-d3c1-4138-b40d-43da421e0b07
+z
+java:S1659">Declare "M" and all following declarations on a separate line.(î˜±ğJ$cb20bf70-7ed9-4a49-a60b-40f682918664
+š
+java:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(áÂ¦ÿÿÿÿÿJ$d98e6c32-6bb9-48e5-ac52-85ad1a539739
+f	java:S106D"+Replace this use of System.out by a logger.(ô¤„åJ$f308b6a9-3f5e-4de9-b5ea-5f86f7e41e2b
+|	java:S125I"<This block of commented-out lines of code should be removed.(Ğ¢ƒ²øÿÿÿÿJ$5fe33f2d-eaf7-4f28-93c3-bbad458c7314
+k
+java:S1128"*Remove this unused import 'java.util.Map'.(¼è½ÒşÿÿÿÿJ$fc8cb52c-58a6-4afb-8f4e-0830ef8de916
 t
-java:S1210"YOverride "equals(Object obj)" to comply with the contract of the "compareTo(T o)" method.(áÂ¦ÿÿÿÿÿ
-@	java:S106D"+Replace this use of System.out by a logger.(ô¤„å
-V	java:S125I"<This block of commented-out lines of code should be removed.(Ğ¢ƒ²øÿÿÿÿ
-E
-java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ
-N
-java:S1128	"3Remove this unused import 'java.util.NavigableMap'.(õ Ì§ûÿÿÿÿ
+java:S1128	"3Remove this unused import 'java.util.NavigableMap'.(õ Ì§ûÿÿÿÿJ$a0bdab06-67ac-4c84-b8b9-9f6d9e8afe4f

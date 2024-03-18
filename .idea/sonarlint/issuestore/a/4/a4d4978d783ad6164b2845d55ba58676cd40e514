@@ -1,14 +1,14 @@
 
- 	java:S135$"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8­¬“ùä1J$6f4e3ce0-ae26-414a-8d7d-d3d3bc952c59
+ 	java:S135$"YReduce the total number of break and continue statements in this loop to use at most one.(˜ïˆÿÿÿÿÿ8­¬“ùä1J$255c1bb1-4fe1-4069-893c-8dcb0c84c7be
 w
-java:S1066l"/Merge this if statement with the enclosing one.(Ç¢ñŞüÿÿÿÿ8­¬“ùä1J$07af1e28-f385-4210-9abb-ddcfe5e17422
-¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹¬Àòøÿÿÿÿ8®¬“ùä1J$0c6a98d5-aaac-4b96-bcc4-9ef7eaa70f48
+java:S1066l"/Merge this if statement with the enclosing one.(Ç¢ñŞüÿÿÿÿ8­¬“ùä1J$d3547437-af00-4fdc-8fd1-7f4bd901237e
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹¬Àòøÿÿÿÿ8®¬“ùä1J$8aa44a72-ad84-4117-804a-8f319c61c751
 
-java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ ¬ï8Œ­“ùä1J$59133c0f-b9bb-4a3c-87a7-aab5993a3a51
+java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ ¬ï8Œ­“ùä1J$1f0e11ed-de4b-48f9-ab08-1cc7c660be42
 
-java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ ¬ï8Œ­“ùä1J$e10e2d3a-5ca8-4f16-b12b-824183562fe8
+java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ ¬ï8Œ­“ùä1J$88be4b1e-d433-49f4-a086-ece4ba7dc86d
 b
-java:S1659"Declare "M" on a separate line.(ğ ¬ï8Œ­“ùä1J$f3782159-f4ea-4e79-9549-26d2646e5c04
-r	java:S1063"+Replace this use of System.out by a logger.(ïÖ Ïıÿÿÿÿ8‘­“ùä1J$220475be-0cec-4fee-8670-0f57ecd6e26e
+java:S1659"Declare "M" on a separate line.(ğ ¬ï8Œ­“ùä1J$d42f1b59-ce80-451c-803b-7dbee190a355
+r	java:S1063"+Replace this use of System.out by a logger.(ïÖ Ïıÿÿÿÿ8‘­“ùä1J$a7d5d27e-43a9-4528-b34e-f0d0b8b2d734
 š
-java:S3776S"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(„ÄÄ³üÿÿÿÿ8“­“ùä1J$f1324f2e-eb78-457f-a752-1aa88f983d00
+java:S3776S"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(„ÄÄ³üÿÿÿÿ8“­“ùä1J$5a21171c-92a9-4426-b3d0-94b3733cb80e

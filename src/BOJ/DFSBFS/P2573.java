@@ -106,14 +106,14 @@ public class P2573 {
                 //valid
                 if (nx >= 0 && nx < N && ny >= 0 && ny < M) {
                     if (!visited[nx][ny] && board[nx][ny] == 0) {
-                        count++;
+                        count++; //주변의 0 만큼 감소를 시켜야함.
                     }
                 }
             }
-            if (board[curX][cutY] - count < 0) {
+            if (board[curX][cutY] - count < 0) { // 0보다 작으면 0으로 초기화
                 board[curX][cutY] = 0;
             } else {
-                board[curX][cutY] -= count;
+                board[curX][cutY] -= count; //주변 바다의 영역만큼 감소를 진행해야함r
             }
         }
     }

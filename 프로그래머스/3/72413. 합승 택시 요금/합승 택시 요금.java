@@ -23,14 +23,13 @@ class Solution {
     }
     
     
-    static ArrayList<Node>[] graph;
+    static ArrayList<ArrayList<Node>> graph = new ArrayList<>();
     static int MAX = 2000001;
     
     public int solution(int n, int s, int a, int b, int[][] fares) {
         int answer = MAX;
-        graph = new ArrayList[n+1];
         for(int i=0; i<=n; i++) {
-            graph[i] = new ArrayList<>();
+            graph.add(new ArrayList<>());
         }
         
         for(int[] num : fares) {
@@ -38,8 +37,8 @@ class Solution {
             int d = num[1];
             int f = num[2];
             //그래프 양방향연결
-            graph[c].add(new Node(d,f));
-            graph[d].add(new Node(c,f));
+            graph.get(c).add(new Node(d,f));
+            graph.get(d).add(new Node(c,f));
         }
         
         int[] arrA = dijkstra(a,n);//A
@@ -62,13 +61,14 @@ class Solution {
         
         while(!pq.isEmpty()) {
             Node now = pq.poll();
-            //다음 노드들
-            for(Node node : graph[now.end]) {
-                if(dist[node.end] > node.cost + now.cost) {
-                    dist[node.end] = node.cost + now.cost; 
-                    pq.add(new Node(node.end , node.cost + now.cost));
+            
+            for(Node next : graph.get(now.end)) {
+                if(dist[next.end] > next.cost + now.cost) {
+                    dist[next.end] = next.cost + now.cost;
+                    pq.add(new Node(next.end, next.cost + now.cost));
                 }
-            }
+            }             
+            
         }
         return dist;
     }

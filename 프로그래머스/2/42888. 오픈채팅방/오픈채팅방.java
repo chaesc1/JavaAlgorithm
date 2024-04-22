@@ -2,7 +2,6 @@ import java.util.*;
 
 class Solution {
     public String[] solution(String[] record) {
-        String[] answer = {};
         HashMap<String,String> msg = new HashMap<>();
         msg.put("Enter","님이 들어왔습니다.");
         msg.put("Leave","님이 나갔습니다.");
@@ -25,7 +24,9 @@ class Solution {
                 list.add(idMap.get(line[1]) + msg.get(line[0]));
             }
         }
+        String[] answer = new String[list.size()-1];
+        answer = list.toArray(answer);
         // System.out.println(list);
-        return list.toArray(new String[0]);
+        return answer;
     }
 }

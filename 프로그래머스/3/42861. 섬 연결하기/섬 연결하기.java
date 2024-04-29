@@ -3,29 +3,29 @@ import java.util.*;
 class Solution {
     private static int[] parent;
     public int solution(int n, int[][] costs) {
-        Arrays.sort(costs,(o1,o2) -> Integer.compare(o1[2],o2[2])); // cost 오름차순 정렬
+        //cost 오름차순 정렬
+        Arrays.sort(costs, (o1,o2) -> Integer.compare(o1[2],o2[2]));
         
         parent = new int[n];
         for(int i=0; i<n; i++) {
             parent[i] = i;
         }
-        //연결된 다리의 수
-        int edges = 0;
-        int answer = 0;
         
-        for(int[] cost : costs) {
-            // System.out.println(cost[0] + " " + cost[1]);
+        int answer = 0; //최소 신장 트리의 총 비용
+        int edges = 0; // 연결된 다리의 수
+        
+        for(int[] edge : costs) {
+            // 간선이 n-1 개면 모든 섬이 이어진 것이다.
             if(edges == n-1) {
-                break;        
+                break;
             }
-            
-            if(find(cost[0]) != find(cost[1])) {
-                union(cost[0],cost[1]);
+            // 현재 다리가 연결하는 두 섬이 이미 연결 되었는지 확인 
+            if(find(edge[0]) != find(edge[1])) {
+                union(edge[0],edge[1]);
                 
-                answer += cost[2];
+                answer += edge[2];
                 edges++;
             }
-            
         }
         
         return answer;

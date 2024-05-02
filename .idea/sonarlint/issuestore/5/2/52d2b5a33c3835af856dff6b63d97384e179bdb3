@@ -1,0 +1,13 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡¢‰òÿÿÿÿÿ8•ªğÊè1J$b673667d-ab23-427e-9b75-c5ecf1f6a72d
+a
+java:S2583D"DChange this condition so that it does not always evaluate to "false"(ùÎ›¿8ì¨‹Úì1
+”
+java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûîèõşÿÿÿÿ8¶ªğÊè1J$7d0a56b5-2ec7-437a-ae2c-66d8b8d33ac8
+”
+java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ï¹Åüÿÿÿÿ8¶ªğÊè1J$478cac87-68e8-4ba0-897c-85bdffa1e589
+
+java:S3008"LRename this field "W" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«§Ò®8¶ªğÊè1J$8f8f97cd-942c-4f3b-8a89-ad8a3ecca0fb
+–
+java:S3008!"NRename this field "INF" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒ»òúùÿÿÿÿ8¶ªğÊè1J$852e3917-34fe-4e86-b0dd-8f6b91be596e
+p	java:S108Z")Either remove or fill this block of code.(ıü‡Ìûÿÿÿÿ8—ŸóÊè1J$1bb9cabd-dbc5-474c-824a-86b09793c4fe

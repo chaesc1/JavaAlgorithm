@@ -1,0 +1,7 @@
+
+˜	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÂšŸüÿÿÿÿ8™çû¢å1J$bf75300b-19c6-45ee-9160-c37983a3b4d4
+“	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğ¹÷8™çû¢å1J$3b8fe353-0235-4b0b-9306-a3933dd981c0
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‡¢‰òÿÿÿÿÿ8šçû¢å1J$d07ccd29-b549-4543-a3b5-fd1ab4772c92
+m	java:S106)"+Replace this use of System.out by a logger.(ûÄÏ8ğçû¢å1J$2c22785d-5306-4b1e-adab-e2792d6be637
+|
+java:S1128"4Remove this unused import 'java.util.PriorityQueue'.(ÆãÑşøÿÿÿÿ8Üìı¢å1J$02450605-2add-4daf-bc15-f539b9720698

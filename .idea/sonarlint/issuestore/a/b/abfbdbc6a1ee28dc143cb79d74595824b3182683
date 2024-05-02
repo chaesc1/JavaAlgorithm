@@ -1,0 +1,12 @@
+
+¡	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹¬Àòøÿÿÿÿ8‡°¢‚å1J$71710c02-4269-40db-baf8-1c1ad47b998a
+”
+java:S3008"LRename this field "N" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûîèõþÿÿÿÿ8Î°¢‚å1J$c04c9366-2e29-4186-a97d-164815b10b97
+”
+java:S3008"LRename this field "M" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸ï¹Åüÿÿÿÿ8Î°¢‚å1J$15250306-5428-4fae-b1fe-e88f4731cf20
+•
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(œû¿Ø8Ð°¢‚å1J$f9e58bab-a549-46a4-ac11-b9a322de9a67
+r	java:S106"+Replace this use of System.out by a logger.(ìÑÑÈÿÿÿÿÿ8Ò°¢‚å1J$8605ca27-8030-4e16-8785-ff24a7abb64f
+ƒ	java:S125("<This block of commented-out lines of code should be removed.(®ÐÜûÿÿÿÿ8Ò°¢‚å1J$fc5a6cef-2add-4d89-a4ad-00cd0fa946f9
+r	java:S106U"+Replace this use of System.out by a logger.(ÒŽÁ ûÿÿÿÿ8¬‘ª‚å1J$aa4983ce-775a-4e60-a11d-1581ec496d53
+r	java:S106Z"+Replace this use of System.out by a logger.(¡ò†þÿÿÿÿ8Ê¥¸‚å1J$9967ab71-9ebc-45d4-9649-ddc3282044c2

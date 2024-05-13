@@ -36,8 +36,9 @@ public class P1865 {
         StringBuilder sb = new StringBuilder();
         int tc = Integer.parseInt(br.readLine());
 
-        StringTokenizer st = new StringTokenizer(br.readLine());
+        StringTokenizer st;
         for (int i = 0; i < tc; i++) {
+            st = new StringTokenizer(br.readLine());
             N = Integer.parseInt(st.nextToken());
             M = Integer.parseInt(st.nextToken());
             W = Integer.parseInt(st.nextToken());
@@ -88,7 +89,7 @@ public class P1865 {
         }
 
         if (flag) {
-
+            return true;
         }
         return false;
     }

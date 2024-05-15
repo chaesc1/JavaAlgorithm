@@ -5,34 +5,54 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
 public class P1744 {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        Integer[] arr = new Integer[N];
+        //음수는 오름차순으로 우선순위 큐 생성
+        PriorityQueue<Integer> minus = new PriorityQueue<>();
+        //양수는 내림차순으로 우선순위 큐
+        PriorityQueue<Integer> plus = new PriorityQueue<>(Collections.reverseOrder());
 
-        int minCnt = 0;
+        int N = Integer.parseInt(br.readLine());
         for (int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
-            if (arr[i] < 0) {
-                minCnt++;
+            int num = Integer.parseInt(br.readLine());
+            if (num > 0) {
+                plus.add(num);
+            } else {
+                minus.add(num);
             }
         }
 
-        Arrays.sort(arr);
-        for (int i : arr) {
-            System.out.println(i);
-        }
-        int ans = 0;
-        //음수 개수 minCnt
-        for (int i = 1; i < minCnt; i+=2) {
-            ans += (arr[i-1] + arr[i]);
-        }
+        int result = getSum(minus) + getSum(plus);
+        System.out.println(result);
+    }
 
-        if (minCnt % 2 == 1) {
-            ans += arr[minCnt - 1];
-        }
+    private static int getSum(PriorityQueue<Integer> pq) {
+        Queue<Integer> queue = new LinkedList<>();
+        while (!pq.isEmpty()) {
+            int cur = pq.poll();
 
+            if (pq.isEmpty()) {
+                queue.add(cur);
+            } else {
+                int next = pq.poll();
+                if (cur == 1 || next == 1) {
+                    // 1은 곱하면 손해
+                    queue.add(cur);
+                    queue.add(next);
+                } else {
+                    queue.add(cur * next);
+                }
+            }
+        }
+        int result = 0;
+        while (!queue.isEmpty()) {
+            result += queue.poll();
+        }
+        return result;
     }
 }

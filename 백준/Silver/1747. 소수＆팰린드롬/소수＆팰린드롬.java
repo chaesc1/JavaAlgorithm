@@ -9,6 +9,13 @@ public class Main {
         boolean isPrime = false;
         boolean isPalin = false;
 
+        if (N == 1 || N == 2) {
+            System.out.println(2);
+            return;
+        }
+        if (N % 2 == 0) {
+            N++;
+        }
         //소수 구하고
 
         //palindrome 검사
@@ -17,7 +24,7 @@ public class Main {
             isPrime = getPrime(N);
             isPalin = checkPalin(Integer.toString(N));
             if (isPrime && isPalin) break;
-            N++;
+            N+=2;
         }
 
         System.out.println(N);

@@ -25,7 +25,7 @@ public class Main {
             }
 
             for (int j = 1; j <= n; j++) {
-//                if (isCheck[j]) continue;
+                if (isCheck[j]) continue;
                 dfs(j);
             }
             System.out.println(n-res);

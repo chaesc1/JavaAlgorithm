@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
-import javax.swing.text.Position;
 
 public class P5 {
 

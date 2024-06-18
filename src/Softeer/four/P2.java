@@ -3,7 +3,6 @@ package Softeer.four;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
 
 public class P2 {
     public static void main(String[] args) throws IOException {
@@ -44,10 +43,6 @@ public class P2 {
             encrypted = front + back;
         }
         return encrypted;
-    }
-
-    private static char encryptChar(char original, char key) {
-        return (char) ((original - 'a' + key - 'a') % 26 + 'a');
     }
     public static String decrypt(String secret, int rotateNum, String encrypted) {
         if (rotateNum < 0) {

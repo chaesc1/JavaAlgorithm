@@ -61,3 +61,9 @@ S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
+H
+src/BOJ/Stack/P2493.java,6/c/6c157e6978e6a81c652e71d9eaff668249264814
+I
+src/BOJ/Greedy/P2138.java,b/c/bcfbbcc9a32c86f515d3c67757cd99888a4f8fca
+I
+src/Softeer/four/P11.java,8/1/81e74d85ab404fa597a60bf70f2427e5b9d6b9d2

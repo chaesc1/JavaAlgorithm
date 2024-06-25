@@ -5,7 +5,6 @@ import java.util.StringTokenizer;
 public class Solution {
     static int N, B, answer;
     static int[] arr;
-    static boolean[] visited;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,7 +17,6 @@ public class Solution {
             B = Integer.parseInt(st.nextToken());
 
             arr = new int[N];
-            visited = new boolean[N];
             st = new StringTokenizer(br.readLine());
             for (int i = 0; i < N; i++) {
                 arr[i] = Integer.parseInt(st.nextToken());

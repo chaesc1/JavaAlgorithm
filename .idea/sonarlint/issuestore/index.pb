@@ -117,3 +117,11 @@ V
 &src/BOJ/DynamicProgramming/P11726.java,f/0/f023b0b7844834434ffed3792ad9890e4995d58b
 V
 &src/BOJ/DynamicProgramming/P11727.java,6/9/697a7e07939e6d31eeb0ca26b855aec3fd0feecc
+U
+%src/BOJ/DynamicProgramming/P1106.java,7/8/7861334c74921ddb413bb1d6bf974568ae6a9c04
+L
+src/BOJ/Implement/P1244.java,b/5/b5f0d35bc4629a6895dbf3aaf098681266ebbc1b
+M
+src/BOJ/Implement/P17837.java,f/2/f2eb2b8757b514f22b5c4fcc19674cc82151b26e
+J
+src/BOJ/DFSBFS/P13460.java,f/3/f30b0ed4588b0cb4161202fa08bc4aeb082f6db4

@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 31256 KB, 시간: 740 ms
+메모리: 14792 KB, 시간: 140 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2023년 2월 22일 22:56:42
+2024년 7월 9일 09:31:16
 
 ### 문제 설명
 
@@ -22,11 +22,11 @@
 
 <p>예를 들어, <em>N</em>=7일 때 나열된 병사들의 전투력이 다음과 같다고 가정하자.</p>
 
-<p style="text-align: center;"><img alt="" src="" style="width: 730px; height: 86px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/d8a7b6e4-7524-42b0-841b-419dc0386ba4/-/preview/" style="width: 730px; height: 86px;"></p>
 
 <p style="text-align: justify;">이 때 3번 병사와 6번 병사를 열외시키면, 다음과 같이 남아있는 병사의 수가 내림차순의 형태가 되며 5명이 된다. 이는 남아있는 병사의 수가 최대가 되도록 하는 방법이다.</p>
 
-<p style="text-align: center;"><img alt="" src="" style="height: 87px; width: 560px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/675a238f-f754-458f-92a6-c98c2d801d1a/-/preview/" style="height: 87px; width: 560px;"></p>
 
 <p style="text-align: justify;">병사에 대한 정보가 주어졌을 때, 남아있는 병사의 수가 최대가 되도록 하기 위해서 열외해야 하는 병사의 수를 출력하는 프로그램을 작성하시오.</p>
 

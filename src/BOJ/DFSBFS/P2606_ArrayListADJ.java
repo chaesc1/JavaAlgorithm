@@ -2,11 +2,12 @@ package BOJ.DFSBFS;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class P2606_Re {
+public class P2606_ArrayListADJ {
     static int N, M,count;
-    static int[][] adj; // 인접리스트로 표현
+    static ArrayList<Integer>[] adjList;
     static boolean[] visited;
 
     public static void main(String[] args) throws Exception {
@@ -14,7 +15,10 @@ public class P2606_Re {
         M = Integer.parseInt(br.readLine());
         N = Integer.parseInt(br.readLine());
 
-        adj = new int[M + 1][M + 1];
+        adjList = new ArrayList[M + 1];
+        for (int i = 1; i <= M; i++) {
+            adjList[i] = new ArrayList<>();
+        }
         visited = new boolean[M + 1];
 
         StringTokenizer st;
@@ -23,7 +27,8 @@ public class P2606_Re {
             int start = Integer.parseInt(st.nextToken());
             int end = Integer.parseInt(st.nextToken());
 
-            adj[start][end] = adj[end][start] = 1;
+            adjList[start].add(end);
+            adjList[end].add(start);
         }
 
         int answer = dfs(1);
@@ -33,12 +38,13 @@ public class P2606_Re {
     private static int dfs(int start) {
         visited[start] = true;
         count = 1;
-        for (int i = 1; i <= M; i++) {
-            if (adj[start][i] == 1 && !visited[i]) {
-                count += dfs(i);
+        for (int i = 0; i < adjList[start].size(); i++) {
+            int next = adjList[start].get(i);
+
+            if (!visited[next]) {
+                count += dfs(next);
             }
         }
-
         return count;
     }
 }

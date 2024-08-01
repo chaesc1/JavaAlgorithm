@@ -156,12 +156,6 @@ L
 src/liveCodingTest/file2.txt,f/d/fd5a4ba9d1f1d7985c2112689c0c25349bf9a54c
 J
 src/liveCodingTest/P3.java,2/e/2e68ce12a17eeaf4b1e87e0383b57e3567329c95
-N
-src/liveCodingTest/output2.txt,e/f/efbc3d0b6810d0cd4a683b262e11d3cfd0353fc7
-M
-src/liveCodingTest/output.txt,c/0/c0797b776c474500939d516d38117bbf39334d19
-N
-src/liveCodingTest/output3.txt,b/0/b00de8996b6da944ffd4928a36f6571f4c5a5851
 =
 src/file1.txt,a/7/a78afb368596f09b3848d1b005274dd1c2ca20a6
 =
@@ -182,3 +176,33 @@ P
  src/BOJ/DFSBFS/P2667_다시.java,6/7/6785774c5bfa7881ff83ac87201764e5062c6d59
 I
 src/BOJ/DFSBFS/P2667.java,f/7/f79f7d407021ae8706f420279509793551386b47
+H
+src/BOJ/Stack/P1874.java,1/e/1ef968d9c9adffc4d072eed013fbbcfd9218b714
+L
+src/BOJ/Implement/P2504.java,9/6/961d6d3b4e5c4c080262fd72c5b943df1a3ad4e0
+M
+src/BOJ/Implement/P20207.java,f/8/f8a762c0246a39bb9d93d4be89e60e45ca422e20
+n
+>src/SWexpertAcademy/Btype/숫자야구게임/UserSolution.java,9/8/98f3cc2a631c6a857fee45cd992f19160b44260e
+j
+:src/SWexpertAcademy/Btype/숫자야구게임/Solution.java,9/3/938da2e42bb517b730de850fc9410972349842ae
+w
+Gsrc/SWexpertAcademy/Btype/숫자야구게임/UserSolution최적화.java,9/5/956792267c6339a078104f176f95d0f31e314fb4
+p
+@src/SWexpertAcademy/Btype/프로세서연결하기/Solution.java,b/8/b86711f6dd06cc743e653ac4fd0fc05c5b1ca3ae
+>
+src/Test3.java,9/8/982e048ee39feba4ae6dbb73fa3b9376b7e639c2
+L
+src/SSAFY/java/SortProb.java,0/a/0ad165f49457bd82fbb6e1d00a7751a8ac0c9f0a
+L
+src/SSAFY/java/Employee.java,5/c/5c8e6a30606400dd3dc7278c76fa21e15ffefa19
+I
+src/BOJ/Stack/P10799.java,1/c/1cb596462bbcaea05ee6b6f9e0ef3cde09fe41d0
+[
++src/SSAFY/study/P10진수를2진수로.java,4/e/4e3d4ac921f58bb9d9b9ed882274c6daadfd5b84
+P
+ DataStructure/src/DS_DFSBFS.java,f/6/f6bcf5483cd71e16d6ff6c9621fabdfa42e19eaa
+J
+DataStructure/src/BFS.java,e/2/e23d796c81cf06e8fc9608b7d801bcff79b9ef77
+J
+DataStructure/src/DFS.java,1/c/1c64ab29fceb161b90762f54ce2af1863ccb3c11

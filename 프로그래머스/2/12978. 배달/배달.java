@@ -34,7 +34,7 @@ class Solution {
             Node now = pq.poll();
             
             if(now.cost > dist[now.end]) continue;
-            
+            if (now.cost > K) continue; // 가지치기 조건 추가
             for(Node next : adjList[now.end]) {
                 if(now.cost + next.cost < dist[next.end]) {
                     dist[next.end] = now.cost + next.cost;

@@ -90,10 +90,8 @@ public class P5653 {
             }
 
             for (Cell value : cell) {
-                if (value.status == DEAD) {
-                    continue;
-                } else if (value.status == INACTIVE && value.time == i) {
-                    value.status = ACTIVE; // x시간 동안 활성ㅅ상태 유지하고
+                if (value.status == INACTIVE && value.time == i) {
+                    value.status = ACTIVE; // x시간 동안 활성상태 유지하고
                     value.time = i + value.power; // 현재시간보다 x 지난후에 죽는상태로
                     for (int k = 0; k < 4; k++) {
                         int nx = value.x + dx[k];

@@ -1,58 +1,58 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+class Pos {
+    int x, y;
+
+    public Pos(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void move(int dir) {
+        if (dir == 1) {
+            y--;
+        } else if (dir == 2) {
+            x++;
+        } else if (dir == 3) {
+            y++;
+        } else if (dir == 4) {
+            x--;
+        }
+    }
+}
+
+class BC {
+    int x, y, c, p;
+
+    public BC(int x, int y, int c, int p) {
+        this.x = x;
+        this.y = y;
+        this.c = c;
+        this.p = p;
+    }
+
+    public boolean isInRange(int px, int py) {
+        return Math.abs(x - px) + Math.abs(y - py) <= c;
+    }
+}
+
 public class Solution {
-    static class Pos {
-        int x, y;
-
-        public Pos(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-
-        public void move(int dir) {
-            int[] dx = {0, 0, 1, 0, -1};
-            int[] dy = {0, -1, 0, 1, 0};
-            x += dx[dir];
-            y += dy[dir];
-        }
-    }
-
-    static class BC {
-        Pos pos;
-        int c;
-        int p;
-
-        public BC(Pos pos, int c, int p) {
-            this.pos = pos;
-            this.c = c;
-            this.p = p;
-        }
-    }
-    static ArrayList<BC> bcs;
-    static int[] dirA;
-    static int[] dirB;
-    static int t;
-    static int m;
-    static int a;
+    static BC[] bcs;
+    static int[] dirA, dirB;
+    static int m, a;
     static int result;
-
-    static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = null;
-
-        t = Integer.parseInt(br.readLine());
+        int t = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder();
 
         for (int tc = 1; tc <= t; tc++) {
-            st = new StringTokenizer(br.readLine());
+            StringTokenizer st = new StringTokenizer(br.readLine());
             m = Integer.parseInt(st.nextToken());
             a = Integer.parseInt(st.nextToken());
-
-            bcs = new ArrayList<>();
 
             dirA = new int[m];
             dirB = new int[m];
@@ -67,19 +67,23 @@ public class Solution {
                 dirB[i] = Integer.parseInt(st.nextToken());
             }
 
+            bcs = new BC[a];
             for (int i = 0; i < a; i++) {
                 st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken());
                 int y = Integer.parseInt(st.nextToken());
                 int c = Integer.parseInt(st.nextToken());
                 int p = Integer.parseInt(st.nextToken());
-                bcs.add(new BC(new Pos(x, y), c, p));
+                bcs[i] = new BC(x, y, c, p);
             }
+
             result = 0;
             solve();
+
             sb.append("#").append(tc).append(" ").append(result).append("\n");
         }
-        System.out.println(sb.toString());
+
+        System.out.print(sb.toString());
     }
 
     private static void solve() {
@@ -96,37 +100,29 @@ public class Solution {
     }
 
     private static void charge(Pos userA, Pos userB) {
-        ArrayList<int[]> aList = new ArrayList<>();
-        ArrayList<int[]> bList = new ArrayList<>();
+        int maxCharge = 0;
 
         for (int i = 0; i < a; i++) {
-            BC bc = bcs.get(i);
-            int distA = Math.abs(bc.pos.x - userA.x) + Math.abs(bc.pos.y - userA.y);
-            int distB = Math.abs(bc.pos.x - userB.x) + Math.abs(bc.pos.y - userB.y);
+            BC bcA = bcs[i];
+            boolean isAInRange = bcA.isInRange(userA.x, userA.y);
+            boolean isBInRange = bcA.isInRange(userB.x, userB.y);
 
-            if (bc.c >= distA) {
-                aList.add(new int[]{i, bc.p});
-            }
-            if (bc.c >= distB) {
-                bList.add(new int[]{i, bc.p});
-            }
-        }
+            for (int j = 0; j < a; j++) {
+                BC bcB = bcs[j];
+                boolean isAInRangeB = bcB.isInRange(userA.x, userA.y);
+                boolean isBInRangeB = bcB.isInRange(userB.x, userB.y);
 
-        int max = 0;
+                int chargeA = isAInRange ? bcA.p : 0;
+                int chargeB = isBInRangeB ? bcB.p : 0;
 
-        if (!aList.isEmpty() && !bList.isEmpty()) {
-            for (int[] bcA : aList) {
-                for (int[] bcB : bList) {
-                    int sum = (bcA[0] == bcB[0]) ? bcA[1] : bcA[1] + bcB[1];
-                    max = Math.max(max, sum);
+                if (i == j && isAInRange && isBInRangeB) {
+                    maxCharge = Math.max(maxCharge, chargeA / 2 + chargeB / 2);
+                } else {
+                    maxCharge = Math.max(maxCharge, chargeA + chargeB);
                 }
             }
-        } else if (!aList.isEmpty()) {
-            max = aList.stream().mapToInt(bc -> bc[1]).max().orElse(0);
-        } else if (!bList.isEmpty()) {
-            max = bList.stream().mapToInt(bc -> bc[1]).max().orElse(0);
         }
 
-        result += max;
+        result += maxCharge;
     }
 }

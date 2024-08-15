@@ -15,7 +15,7 @@ public class Solution {
         public Cell(int power, int time, int y, int x) {
             this.power = power;
             this.status = INACTIVE;
-            this.time = time;
+            this.time =  time;
             this.y = y;
             this.x = x;
         }

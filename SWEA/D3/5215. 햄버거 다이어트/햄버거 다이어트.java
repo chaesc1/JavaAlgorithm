@@ -21,7 +21,6 @@ public class Solution {
     static int L;  // 최대 허용 칼로리
     static int MAX;  // 최대 점수
     static ArrayList<Info> list;  // 재료 목록
-    static boolean[] isSelected;  // 재료 선택 여부
     static StringBuilder sb = new StringBuilder();  // 출력 결과를 저장할 StringBuilder
 
     public static void main(String[] args) throws Exception {
@@ -42,36 +41,27 @@ public class Solution {
                 list.add(new Info(s, c));  // 재료를 리스트에 추가
             }
 
-            isSelected = new boolean[N];  // 재료 선택 여부 배열 초기화
             MAX = Integer.MIN_VALUE;  // 최대 점수를 매우 작은 값으로 초기화
-            calcMax(0);  // 깊이를 0으로 시작하여 최대 점수 계산
+            calcMax(0, 0, 0);  // 점수, 칼로리, 깊이를 0으로 시작하여 최대 점수 계산
             sb.append("#").append(tc).append(" ").append(MAX).append("\n");  // 출력 결과 저장
         }
         System.out.println(sb.toString());  // 최종 결과 출력
     }
 
     // 점수와 칼로리의 조합을 찾기 위한 재귀 함수
-    private static void calcMax(int depth) {
-        if (depth == N) {  // 모든 재료를 다 고려한 경우
-            int score = 0;
-            int cal = 0;
-            // 선택된 재료의 점수와 칼로리를 계산
-            for (int i = 0; i < N; i++) {
-                if (isSelected[i]) {
-                    score += list.get(i).score;
-                    cal += list.get(i).cal;
-                }
-            }
-            if (cal <= L) {  // 최대 허용 칼로리를 초과하지 않는 경우
-                MAX = Math.max(MAX, score);  // 최대 점수를 갱신
-            }
+    private static void calcMax(int index, int currentScore, int currentCal) {
+        if (currentCal > L) {
+            // 현재 칼로리가 최대 허용 칼로리를 초과한 경우 더 이상 탐색하지 않음
+            return;
+        }
+        if (index == N) {
+            // 모든 재료를 다 고려한 경우 최대 점수를 갱신
+            MAX = Math.max(MAX, currentScore);
             return;
         }
         // 현재 재료를 선택하는 경우
-        isSelected[depth] = true;
-        calcMax(depth + 1);
+        calcMax(index + 1, currentScore + list.get(index).score, currentCal + list.get(index).cal);
         // 현재 재료를 선택하지 않는 경우
-        isSelected[depth] = false;
-        calcMax(depth + 1);
+        calcMax(index + 1, currentScore, currentCal);
     }
 }

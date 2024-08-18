@@ -1,15 +1,11 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 public class Solution {
-    static class Cell{
-        int x;
-        int y;
-        int count; // 미생물수
-        int dir;
+    static class Cell {
+        int x, y, count, dir;
 
         public Cell(int x, int y, int count, int dir) {
             this.x = x;
@@ -17,30 +13,30 @@ public class Solution {
             this.count = count;
             this.dir = dir;
         }
-
     }
 
     static class TempCell {
-        int maxCount;
-        int count;
-        int dir;
+        int maxCount, count, dir;
 
         public TempCell(int maxCount, int count, int dir) {
             this.maxCount = maxCount;
             this.count = count;
             this.dir = dir;
         }
+
+        public void reset() {
+            this.maxCount = 0;
+            this.count = 0;
+            this.dir = -1;
+        }
     }
 
     static TempCell[][] tempMap;
-
-    // 상 하 좌 우
-    static int[] dx = {-1, 1, 0, 0};
+    static int[] dx = {-1, 1, 0, 0};  // 상하좌우 이동
     static int[] dy = {0, 0, -1, 1};
 
-    static int N, M, K; //셀의 개수 N, 격리 시간 M, 미생물 군집의 개수 K
-    static ArrayList<Cell> cells;
-    static int[][] map;
+    static int N, M, K;
+    static LinkedList<Cell> cells;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -54,36 +50,43 @@ public class Solution {
             M = Integer.parseInt(st.nextToken());
             K = Integer.parseInt(st.nextToken());
 
-            cells = new ArrayList<>();
+            cells = new LinkedList<>();
+            tempMap = new TempCell[N][N];
 
+            // 초기화
+            for (int i = 0; i < N; i++) {
+                for (int j = 0; j < N; j++) {
+                    tempMap[i][j] = new TempCell(0, 0, -1);
+                }
+            }
+
+            // 초기 미생물 입력
             for (int i = 0; i < K; i++) {
                 st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken());
                 int y = Integer.parseInt(st.nextToken());
                 int count = Integer.parseInt(st.nextToken());
-                int dir = Integer.parseInt(st.nextToken());
-                Cell cell = new Cell(x, y, count, dir - 1);
-                cells.add(cell);
+                int dir = Integer.parseInt(st.nextToken()) - 1;
+                cells.add(new Cell(x, y, count, dir));
             }
+
             // 격리 시간만큼 진행
             for (int day = 0; day < M; day++) {
-                tempMap = new TempCell[N][N];
-
+                // 임시 맵 초기화
                 for (Cell cell : cells) {
                     int nx = cell.x + dx[cell.dir];
                     int ny = cell.y + dy[cell.dir];
-                    int curDir = cell.dir;
 
-                    cell.x = nx;
-                    cell.y = ny;
-                    // 약품이면
+                    // 약품 구역이면
                     if (isChem(nx, ny)) {
-                        cell.count /= 2; // 미생물 수 절반
-                        cell.dir = changeDir(curDir);
+                        cell.count /= 2;
+                        cell.dir = changeDir(cell.dir);
                     }
 
-                    if (tempMap[nx][ny] == null) {
-                        tempMap[nx][ny] = new TempCell(cell.count, cell.count, cell.dir);
+                    if (tempMap[nx][ny].count == 0) {
+                        tempMap[nx][ny].maxCount = cell.count;
+                        tempMap[nx][ny].count = cell.count;
+                        tempMap[nx][ny].dir = cell.dir;
                     } else {
                         tempMap[nx][ny].count += cell.count;
                         if (cell.count > tempMap[nx][ny].maxCount) {
@@ -91,15 +94,20 @@ public class Solution {
                             tempMap[nx][ny].dir = cell.dir;
                         }
                     }
+
+                    // 새로운 위치 갱신
+                    cell.x = nx;
+                    cell.y = ny;
                 }
 
+                // 셀 갱신 및 tempMap 초기화
                 cells.clear();
                 for (int i = 0; i < N; i++) {
                     for (int j = 0; j < N; j++) {
-                        if (tempMap[i][j] != null) {
+                        if (tempMap[i][j].count > 0) {
                             cells.add(new Cell(i, j, tempMap[i][j].count, tempMap[i][j].dir));
+                            tempMap[i][j].reset();  // 다음날을 위해 초기화
                         }
-
                     }
                 }
             }
@@ -108,20 +116,11 @@ public class Solution {
         }
     }
 
-    // 0 1 2 3 상하좌우
     private static int changeDir(int dir) {
-        if (dir % 2 == 0) {
-            dir += 1;
-        } else {
-            dir -= 1;
-        }
-        return dir;
+        return dir % 2 == 0 ? dir + 1 : dir - 1;
     }
 
     private static boolean isChem(int nx, int ny) {
-        if (nx == 0 || ny == 0 || nx == N - 1 || ny == N - 1) {
-            return true;
-        }
-        return false;
+        return nx == 0 || ny == 0 || nx == N - 1 || ny == N - 1;
     }
 }

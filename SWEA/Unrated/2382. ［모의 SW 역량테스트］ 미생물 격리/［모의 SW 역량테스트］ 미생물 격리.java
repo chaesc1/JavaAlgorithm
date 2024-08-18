@@ -4,15 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.StringTokenizer;
 
-/**
- * 미생물 군집이 이동 후 약품이 칠해진 셀에 도착하면 군집 내 미생물의 절반이 죽고, 이동방향이 반대로 바뀐다.
- * <p>
- * 미생물 수가 홀수인 경우 반으로 나누어 떨어지지 않으므로, 다음과 같이 정의한다.
- * <p>
- * 살아남은 미생물 수 = 원래 미생물 수를 2로 나눈 후 소수점 이하를 버림 한 값
- */
 public class Solution {
-    static class Cell implements Comparator<Cell> {
+    static class Cell{
         int x;
         int y;
         int count; // 미생물수
@@ -25,10 +18,6 @@ public class Solution {
             this.dir = dir;
         }
 
-        @Override
-        public int compare(Cell o1, Cell o2) {
-            return o2.count - o1.count;
-        }
     }
 
     static class TempCell {

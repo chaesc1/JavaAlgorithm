@@ -1,26 +1,24 @@
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int n = Integer.parseInt(br.readLine());
+        BufferedReader br = new BufferedReader(new java.io.InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        int cnt = 0;
+        while (N >= 0) {
+            if (N % 5 == 0) {
+                cnt += N / 5;
+                break;
+            }
+            // N 이 더이상 쪼개지지 않는다면
+            if (N < 3) {
+                cnt = -1;
+                break;
+            }
 
-        int count = 0;
-        int sum = 0;
-        while(n>=0) {
-            if(n % 5 == 0) {
-                count += n / 5;
-//                System.out.println(count);
-                break;
-            }
-            if(n < 3) {
-                count = -1;
-                break;
-            }
-            n -= 3;
-            count++;
+            N -= 3;
+            cnt++;
         }
-        System.out.println(count);
+        System.out.println(cnt);
     }
 }

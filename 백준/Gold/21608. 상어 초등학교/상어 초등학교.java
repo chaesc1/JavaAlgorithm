@@ -12,14 +12,6 @@ public class Main {
             this.id = id;
             this.friend = friend;
         }
-
-        @Override
-        public String toString() {
-            return "Student{" +
-                    "id=" + id +
-                    ", friend=" + Arrays.toString(friend) +
-                    '}';
-        }
     }
 
     static int N;
@@ -46,31 +38,20 @@ public class Main {
             }
             students[i] = new Student(id, friend);
         }
-//        for (Student student : students) {
-//            System.out.println(student.toString());
-//        }
+
         // 자리 배치
         for (Student student : students) {
             assignSeat(student);
         }
 
-//        // 맵 출력 (디버깅 용도)
-//        System.out.println("Final Seating Map:");
-//        for (int i = 1; i <= N; i++) {
-//            for (int j = 1; j <= N; j++) {
-//                System.out.print(map[i][j] + " ");
-//            }
-//            System.out.println();
-//        }
 
         // 만족도 계산 및 출력
         int totalSatisfaction = 0;
         for (int i = 1; i <= N; i++) {
             for (int j = 1; j <= N; j++) {
-//                totalSatisfaction += calc(map[i][j], i, j);
                 for (int k = 0; k < students.length; k++) {
                     if (students[k].id == map[i][j]) {
-                        totalSatisfaction += calc(k,i,j);
+                        totalSatisfaction += calc(k,i,j); //학생 인덱스 , x y 좌표를 파라미터로 넘겨서 만족도 계산.
                     }
                 }
             }
@@ -132,7 +113,8 @@ public class Main {
                         emptyCnt++;
                     }
                 }
-
+                // 1,2,3 번 조건을 순차적으로 확인.
+                // 3번은 행 -> 열로 탐색하기 때문에 내재되어있다.
                 if (friendCnt > maxFriend || (friendCnt == maxFriend && emptyCnt > maxEmpty)) {
                     x = i;
                     y = j;

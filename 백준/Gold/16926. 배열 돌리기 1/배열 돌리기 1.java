@@ -41,30 +41,24 @@ public class Main {
             int lastRow = N - 1 - layer;
             int lastCol = M - 1 - layer;
 
-            // Save the top-left element of the current layer
             int topLeft = map[firstRow][firstCol];
 
-            // Move elements from top row (left to right) to the left
             for (int i = firstCol; i < lastCol; i++) {
                 map[firstRow][i] = map[firstRow][i + 1];
             }
 
-            // Move elements from right column (top to bottom) to the top
             for (int i = firstRow; i < lastRow; i++) {
                 map[i][lastCol] = map[i + 1][lastCol];
             }
 
-            // Move elements from bottom row (right to left) to the right
             for (int i = lastCol; i > firstCol; i--) {
                 map[lastRow][i] = map[lastRow][i - 1];
             }
 
-            // Move elements from left column (bottom to top) to the bottom
             for (int i = lastRow; i > firstRow; i--) {
                 map[i][firstCol] = map[i - 1][firstCol];
             }
 
-            // Place the saved top-left element to its new position
             map[firstRow + 1][firstCol] = topLeft;
         }
     }

@@ -2,6 +2,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/**
+ * 메모리    시간
+ * 39344	1180
+ */
 public class Main {
     static int N, M, R;
     static int[][] map;
@@ -25,12 +29,14 @@ public class Main {
             rotate();
         }
 
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                System.out.print(map[i][j] + " ");
+                sb.append(map[i][j]).append(" ");
             }
-            System.out.println();
+            sb.append("\n");
         }
+        System.out.println(sb.toString());
     }
 
     private static void rotate() {

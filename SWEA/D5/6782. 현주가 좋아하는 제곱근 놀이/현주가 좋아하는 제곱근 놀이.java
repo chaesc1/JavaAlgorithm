@@ -26,12 +26,11 @@ public class Solution {
                     N = sqrt;
                     cnt++;
                 } else {
-                    long nextPerfectSquare = (sqrt + 1) * (sqrt + 1);
-                    cnt += (nextPerfectSquare - N);
-                    N = nextPerfectSquare;
+                    // 제곱근을 가질 수 있는 최소값구해서 N 과 빼면 -> 증가시켜야할 카운트 수
+                    cnt += (sqrt + 1) * (sqrt + 1) - N;
+                    N = (sqrt + 1) * (sqrt + 1);
                 }
             }
-
             System.out.println("#" + tc + " " + cnt);
         }
     }

@@ -75,14 +75,6 @@ public class Solution {
 				dfs(inputCnt+1, row+1);
 			}
 		}
-		//반복 되니까 for문으로 묶기
-//		chemicals[row]=-1; //투입 안하는 경우
-//		dfs(inputCnt, row+1);
-//		chemicals[row]=0; //약품 0
-//		dfs(inputCnt+1, row+1);
-//		chemicals[row]=1; //약품 1
-//		dfs(inputCnt+1, row+1);
-		
 	}
 	
 	

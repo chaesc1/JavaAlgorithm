@@ -2,24 +2,26 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-//물론 이동하려는 방이 존재해야 하고, 이동하려는 방에 적힌 숫자가 현재 방에 적힌 숫자보다 정확히 1 더 커야 한다.
 public class Solution {
-    static int[] dx = {-1, 1, 0, 0};
-    static int[] dy = {0, 0, -1, 1};
-    static int[][] map;
-    static boolean[][] visited;
-    static int N,max,answer,s;
+    static int N; // 방의 크기
+    static int max; // 최대 이동한 거리
+    static int answerNum; // 시작 방 번호
+    static int[][] map; // 방 배열
+    static boolean[][] visited; // 방문 체크 배열
+    static int[] dx = {-1, 1, 0, 0}; // 이동 방향 배열: 상, 하, 좌, 우
+    static int[] dy = {0, 0, -1, 1}; // 이동 방향 배열: 상, 하, 좌, 우
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-        int T = Integer.parseInt(br.readLine());
+        StringBuilder sb = new StringBuilder(); // 결과 출력을 위한 StringBuilder
 
+        int T = Integer.parseInt(br.readLine()); // 테스트 케이스 수 입력
         for (int tc = 1; tc <= T; tc++) {
-            N = Integer.parseInt(br.readLine());
-
-            map = new int[N][N];
-            visited = new boolean[N][N];
+            N = Integer.parseInt(br.readLine()); // 방의 크기 입력
+            map = new int[N][N]; // 방 배열 초기화
+            visited = new boolean[N][N]; // 방문 체크 배열 초기화
+            // 방 배열 값 입력
             for (int i = 0; i < N; i++) {
                 st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < N; j++) {
@@ -27,40 +29,57 @@ public class Solution {
                 }
             }
 
-            max = Integer.MIN_VALUE;
-            answer = 10000;
+            // 값 초기화
+            max = 1; // 최소 길이는 1
+            answerNum = Integer.MAX_VALUE; // 최대한 큰 값으로 초기화
+
+            // 모든 위치에서 DFS 탐색 시작
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < N; j++) {
-                    s = map[i][j];
-                    solve(i, j, 1);
+                    dfs(i, j, map[i][j], 1); // DFS 함수 호출
                 }
             }
-
-            System.out.println("#"+tc+" "+answer+" "+max);
+            // 결과 저장
+            sb.append("#").append(tc).append(" ").append(answerNum).append(" ").append(max).append("\n");
         }
+        // 전체 결과 출력
+        System.out.println(sb.toString());
     }
 
-    private static void solve(int start, int end, int depth) {
-        visited[start][end] = true;
+    /**
+     * DFS를 이용하여 방을 탐색하는 함수
+     *
+     * @param x 현재 x 좌표
+     * @param y 현재 y 좌표
+     * @param num 시작 방 번호
+     * @param depth 현재 이동한 거리
+     */
+    private static void dfs(int x, int y, int num, int depth) {
+        visited[x][y] = true; // 현재 위치 방문 체크
 
+        // 네 방향으로 이동 검사
         for (int i = 0; i < 4; i++) {
-            int ny = start + dy[i];
-            int nx = end + dx[i];
+            int nx = x + dx[i];
+            int ny = y + dy[i];
 
-            if (nx < 0 || nx >= N || ny < 0 || ny >= N) {
-                continue;
-            }
-            if (map[ny][nx] == map[start][end] + 1 && !visited[ny][nx]) {
-                solve(ny,nx,depth+1);
+            // 맵을 벗어나거나 이미 방문했다면 패스
+            if (nx < 0 || nx >= N || ny < 0 || ny >= N) continue;
+            if (visited[nx][ny]) continue;
+
+            // 이동하려는 방의 번호가 현재 방의 번호 + 1이라면 이동
+            if (map[nx][ny] == map[x][y] + 1) {
+                dfs(nx, ny, num, depth + 1); // 다음 방으로 이동
             }
         }
 
+        // 최대 이동거리와 시작 방 번호 업데이트
         if (depth > max) {
             max = depth;
-            answer = s;
+            answerNum = num;
+        } else if (depth == max) {
+            answerNum = Math.min(answerNum, num);
         }
-        if (depth == max) answer = Math.min(answer,s);
 
-        visited[start][end] = false;
+        visited[x][y] = false; // 현재 위치 방문 해제 (백트래킹)
     }
 }

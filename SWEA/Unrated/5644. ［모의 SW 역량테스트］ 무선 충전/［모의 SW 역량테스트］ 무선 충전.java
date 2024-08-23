@@ -2,43 +2,43 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-class Pos {
-    int x, y;
+public class Solution {
+    static class Pos {
+        int x, y;
 
-    public Pos(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+        public Pos(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
 
-    public void move(int dir) {
-        if (dir == 1) {
-            y--;
-        } else if (dir == 2) {
-            x++;
-        } else if (dir == 3) {
-            y++;
-        } else if (dir == 4) {
-            x--;
+        public void move(int dir) {
+            if (dir == 1) {
+                y--;
+            } else if (dir == 2) {
+                x++;
+            } else if (dir == 3) {
+                y++;
+            } else if (dir == 4) {
+                x--;
+            }
         }
     }
-}
 
-class BC {
-    int x, y, c, p;
+    static class BC {
+        int x, y, c, p;
 
-    public BC(int x, int y, int c, int p) {
-        this.x = x;
-        this.y = y;
-        this.c = c;
-        this.p = p;
+        public BC(int x, int y, int c, int p) {
+            this.x = x;
+            this.y = y;
+            this.c = c;
+            this.p = p;
+        }
+
+        public boolean isInRange(int px, int py) {
+            return Math.abs(x - px) + Math.abs(y - py) <= c;
+        }
     }
 
-    public boolean isInRange(int px, int py) {
-        return Math.abs(x - px) + Math.abs(y - py) <= c;
-    }
-}
-
-public class Solution {
     static BC[] bcs;
     static int[] dirA, dirB;
     static int m, a;

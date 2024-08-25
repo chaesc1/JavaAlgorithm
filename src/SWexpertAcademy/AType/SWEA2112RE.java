@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class SWEA2112최적화시도 {
+public class SWEA2112RE {
     static int D, W, K;
     static int[][] map;
     static int result; // 최솟값

@@ -4,11 +4,9 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
-    static int L;
-    static int C;
-    static char[] list;
+    static int L, C;
+    static char[] words;
     static boolean[] visited;
-    static char[] password;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -17,35 +15,29 @@ public class Main {
         L = Integer.parseInt(st.nextToken());
         C = Integer.parseInt(st.nextToken());
 
-        list = new char[C];
+        words = new char[C];
         visited = new boolean[C];
-
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < C; i++) {
-            list[i] = st.nextToken().charAt(0);
+            words[i] = st.nextToken().charAt(0);
         }
+        Arrays.sort(words);
 
-        // 문자리스트 정렬하고
-        Arrays.sort(list);
-        // 백트랙킹으로 모든 조합을
-        // 최소 하나의 모음 , 두개 이상의 자음이 있는지 판단
-        // 그리고 저장
-        backtrack(0, 0);
-
+        //암호는 서로 다른 L개의 알파벳 소문자들로 구성되며 최소 한 개의 모음(a, e, i, o, u)과 최소 두 개의 자음으로 구성
+        // 백트래킹으로 모든 가능한 조합의 수를 구한다.
+        backTracking(0, 0);
     }
 
-    private static void backtrack(int start, int idx) {
-        if (idx == L) {
-            //하나의 모음, 두개 이상의 자음이 있는지 판단
-            String password = "";
+    private static void backTracking(int cnt, int start) {
+        if (cnt == L) {
+            // 최소 한개의 모음, 두개의 자음
+            StringBuilder sb = new StringBuilder();
             int mo = 0;
             int ja = 0;
-
             for (int i = 0; i < C; i++) {
                 if (visited[i]) {
-                    password += list[i];
-
-                    if (list[i] == 'a' || list[i] == 'e' || list[i] == 'i' || list[i] =='o' || list[i] =='u') {
+                    sb.append(words[i]);
+                    if (words[i] == 'a' || words[i] == 'e' || words[i] == 'i' || words[i] == 'o' || words[i] == 'u') {
                         mo++;
                     } else {
                         ja++;
@@ -53,13 +45,14 @@ public class Main {
                 }
             }
             if (mo >= 1 && ja >= 2) {
-                System.out.println(password);
+                System.out.println(sb);
             }
+            return;
         }
 
         for (int i = start; i < C; i++) {
             visited[i] = true;
-            backtrack(i + 1, idx + 1);
+            backTracking(cnt + 1, i + 1);
             visited[i] = false;
         }
     }

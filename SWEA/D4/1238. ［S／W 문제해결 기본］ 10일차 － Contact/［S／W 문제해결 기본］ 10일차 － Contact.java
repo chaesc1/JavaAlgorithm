@@ -1,12 +1,12 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Set;
 import java.util.StringTokenizer;
 
+//20,860 kb
+//140 ms
 public class Solution {
     static ArrayList<Integer>[] list;
     static boolean[] visited;

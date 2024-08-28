@@ -5,12 +5,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-//20,860 kb
-//140 ms
+//19,136 kb
+//111 ms
 public class Solution {
-    static ArrayList<Integer>[] list;
+    static int[][] matrix;
     static boolean[] visited;
-
+    static int maxNode;
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
@@ -23,25 +23,21 @@ public class Solution {
             // 임시 저장소를 생성하여, 최대 노드 번호를 찾기 위해 필요한 데이터 (간선의 수의 2배)
             int[] edgeData = new int[length];
             st = new StringTokenizer(br.readLine());
-            int maxNode = 0;
+            maxNode = 0;
             for (int i = 0; i < length; i++) {
                 edgeData[i] = Integer.parseInt(st.nextToken());
                 maxNode = Math.max(maxNode, edgeData[i]);
             }
 
-            // 인접리스트 초기화
-            list = new ArrayList[maxNode + 1];
-            for (int i = 0; i <= maxNode; i++) {
-                list[i] = new ArrayList<>();
-            }
+            // 인접행렬 초기화
+            matrix = new int[maxNode + 1][maxNode + 1];
 
             // 간선 데이터 추가 (중복 간선 허용 방지)
             for (int i = 0; i < length; i += 2) {
                 int from = edgeData[i];
                 int to = edgeData[i + 1];
-                if (!list[from].contains(to)) {
-                    list[from].add(to);
-                }
+
+                matrix[from][to] = 1;
             }
 
             visited = new boolean[maxNode + 1];
@@ -73,10 +69,10 @@ public class Solution {
                 maxNodeAtMaxDepth = currentNode;
             }
 
-            for (int next : list[currentNode]) {
-                if (!visited[next]) {
-                    visited[next] = true;
-                    q.offer(new int[]{next, currentDepth + 1});
+            for (int i = 1; i <= maxNode ; i++) {
+                if (matrix[currentNode][i] == 1 && !visited[i]) {
+                    visited[i] = true;
+                    q.offer(new int[]{i, currentDepth + 1});
                 }
             }
         }

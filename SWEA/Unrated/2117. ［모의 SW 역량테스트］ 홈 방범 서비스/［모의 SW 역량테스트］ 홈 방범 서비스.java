@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
@@ -13,48 +12,51 @@ public class Solution {
         }
     }
 
-    static int n, m, max;
-    static int[][] board;
-    static ArrayList<House> houseList;
+    static int N, M;
+    static int max;
+    static int[][] map;
+    static ArrayList<House> houseArrayList;
     static StringBuilder sb = new StringBuilder();
 
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new java.io.InputStreamReader(System.in));
         StringTokenizer st;
-        int testcase = Integer.parseInt(br.readLine());
 
-        for (int tc = 1; tc <= testcase; tc++) {
-            st = new StringTokenizer(br.readLine());
-            n = Integer.parseInt(st.nextToken());
-            m = Integer.parseInt(st.nextToken());
-            board = new int[n][n];
-            houseList = new ArrayList<>();
+        int TC = Integer.parseInt(br.readLine());
 
-            for (int i = 0; i < n; i++) {
+        for (int tc = 1; tc <= TC; tc++) {
+            st = new StringTokenizer(br.readLine(), " ");
+            N = Integer.parseInt(st.nextToken());
+            M = Integer.parseInt(st.nextToken());
+
+            map = new int[N][N];
+            houseArrayList = new ArrayList<>();
+
+            for (int i = 0; i < N; i++) {
                 st = new StringTokenizer(br.readLine());
-                for (int j = 0; j < n; j++) {
-                    board[i][j] = Integer.parseInt(st.nextToken());
-                    if (board[i][j] == 1) {
-                        houseList.add(new House(i, j));
+                for (int j = 0; j < N; j++) {
+                    map[i][j] = Integer.parseInt(st.nextToken());
+                    if (map[i][j] == 1) {
+                        houseArrayList.add(new House(i, j));
                     }
                 }
             }
-            // 전부 덮는 k부터 1까지 줄여나가
-            int K = 0;
-            if (K % 2 == 0) {
-                K = n + 1;
-            } else {
-                K = n;
-            }
-            // 완전 탐색
-            max = Integer.MIN_VALUE;
-            for (int k = K; k >= 1; k--) {
-                if (getOperation(k) <= max) break;
 
-                for (int i = 0; i < n; i++) {
-                    for (int j = 0; j < n; j++) {
+            int k = 0;
+            if (k % 2 == 0) {
+                k = N + 1;
+            } else {
+                k = N;
+            }
+
+            max = Integer.MIN_VALUE;
+            for (int i = k; i >= 1; i--) {
+                if (getOperation(i) <= max) break;
+
+                for (int j = 0; j < N; j++) {
+                    for (int l = 0; l < N; l++) {
                         // x,y 좌표를 중심으로 k + - 만큼
-                        solve(i, j, k);
+                        solve(j, l, i);
                     }
                 }
             }
@@ -63,22 +65,21 @@ public class Solution {
         System.out.println(sb.toString());
     }
 
-    //서비스 제공받는 집들을 통해 얻는 수익(집갯수*M) - 운영 비용(5)
     private static void solve(int x, int y, int k) {
         int houseCount = 0;
-        for (House house : houseList) {
-            int dist = Math.abs(house.x - x) + Math.abs(house.y - y);
+        for (House house : houseArrayList) {
+            int dist = Math.abs(x - house.x) + Math.abs(y - house.y);
             if (dist < k) {
                 houseCount++;
             }
         }
-        int cost = (houseCount * m) - getOperation(k);
+        int cost = (houseCount * M) - getOperation(k);
         if (cost >= 0) {
             max = Math.max(max, houseCount);
         }
     }
 
-    //운영 비용 = K * K + (K - 1) * (K - 1)
+    // 운영 비용 = K * K + (K - 1) * (K - 1)
     private static int getOperation(int k) {
         return k * k + (k - 1) * (k - 1);
     }

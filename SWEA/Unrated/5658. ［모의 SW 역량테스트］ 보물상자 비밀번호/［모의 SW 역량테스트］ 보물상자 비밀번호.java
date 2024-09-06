@@ -15,7 +15,7 @@ public class Solution {
             int K = Integer.parseInt(st.nextToken());
 
             String input = br.readLine();
-            // 한 변에 있는 숫자개수
+            // 한 변에 있는 숫자 개수
             int length = N / 4;
 
             TreeSet<String> uniqueNum = new TreeSet<>((a, b) -> {
@@ -24,13 +24,17 @@ public class Solution {
                 return Integer.compare(bInt, aInt);
             });
 
-            // 숫자 배열을 회전시키면서 모든 숫자 세트 만듦
+            // 모든 가능한 회전된 상태의 숫자를 관리
+            char[] chars = input.toCharArray();
             for (int i = 0; i < length; i++) {
                 for (int j = 0; j < 4; j++) {
-                    String num = input.substring(j * length, (j + 1) * length);
-                    uniqueNum.add(num);
+                    StringBuilder sbNum = new StringBuilder();
+                    for (int k = 0; k < length; k++) {
+                        sbNum.append(chars[(j * length + k) % N]);
+                    }
+                    uniqueNum.add(sbNum.toString());
                 }
-                input = input.substring(1) + input.charAt(0);
+                rotateArray(chars);
             }
 
             // TreeSet의 K번째 값을 찾음
@@ -47,5 +51,11 @@ public class Solution {
         }
 
         System.out.println(sb.toString());
+    }
+
+    private static void rotateArray(char[] arr) {
+        char first = arr[0];
+        System.arraycopy(arr, 1, arr, 0, arr.length - 1);
+        arr[arr.length - 1] = first;
     }
 }

@@ -6,56 +6,39 @@ public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
-
+        
         int TC = Integer.parseInt(br.readLine());
-
+        
         for (int tc = 1; tc <= TC; tc++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
             int N = Integer.parseInt(st.nextToken());
             int K = Integer.parseInt(st.nextToken());
-
             String input = br.readLine();
-            // 한 변에 있는 숫자 개수
+            
             int length = N / 4;
-
-            TreeSet<String> uniqueNum = new TreeSet<>((a, b) -> {
-                int aInt = Integer.parseInt(a, 16);
-                int bInt = Integer.parseInt(b, 16);
-                return Integer.compare(bInt, aInt);
-            });
-
-            // 모든 가능한 회전된 상태의 숫자를 관리
-            char[] chars = input.toCharArray();
+            
+            // 모든 회전 상태의 숫자를 저장할 세트
+            Set<Integer> uniqueNumSet = new HashSet<>();
+            
             for (int i = 0; i < length; i++) {
                 for (int j = 0; j < 4; j++) {
-                    StringBuilder sbNum = new StringBuilder();
-                    for (int k = 0; k < length; k++) {
-                        sbNum.append(chars[(j * length + k) % N]);
-                    }
-                    uniqueNum.add(sbNum.toString());
+                    String num = input.substring(j * length, (j + 1) * length);
+                    uniqueNumSet.add(Integer.parseInt(num, 16));
                 }
-                rotateArray(chars);
+                
+                input = input.substring(N - 1) + input.substring(0, N - 1);
             }
-
-            // TreeSet의 K번째 값을 찾음
-            int count = 0;
-            int result = 0;
-            for (String num : uniqueNum) {
-                if (++count == K) {
-                    result = Integer.parseInt(num, 16);
-                    break;
-                }
-            }
-
+            
+            // 숫자를 저장한 세트를 정렬된 리스트로 변환
+            List<Integer> sortedNumList = new ArrayList<>(uniqueNumSet);
+            Collections.sort(sortedNumList, Collections.reverseOrder());
+            
+            // 상위 K번째 값을 얻음
+            int result = sortedNumList.get(K - 1);
+            
             sb.append("#").append(tc).append(" ").append(result).append("\n");
         }
-
+        
         System.out.println(sb.toString());
-    }
-
-    private static void rotateArray(char[] arr) {
-        char first = arr[0];
-        System.arraycopy(arr, 1, arr, 0, arr.length - 1);
-        arr[arr.length - 1] = first;
     }
 }

@@ -1,28 +1,38 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class Main {
+    // 원숭이는 머나먼 여행길을 떠난다.
+    // 격자판의 맨 왼쪽 위에서 시작해서 맨 오른쪽 아래까지 가야한다.
+    // 인접한 네 방향으로 한 번 움직이는 것, 말의 움직임으로 한 번 움직이는 것, 모두 한 번의 동작으로 친다
     static int K, W, H;
     static int[][] map;
     static boolean[][][] visited;
     static int[] dx = {-1, 1, 0, 0};
     static int[] dy = {0, 0, -1, 1};
+    // 말처럼 움직이는 경우
     static int[] hx = {-2, -1, 1, 2, 2, 1, -1, -2};
     static int[] hy = {1, 2, 2, 1, -1, -2, -2, -1};
+    static int count;
 
     static class Point {
-        int x, y, k, depth;
+        int x;
+        int y;
+        int k;
+        int depth;
 
-        Point(int x, int y, int k, int depth) {
+        public Point(int x, int y, int k, int depth) {
             this.x = x;
             this.y = y;
-            this.k = k; // 말의 움직임을 몇번 더 사용할 수 있는지 기록
-            this.depth = depth; // 현재까지의 이동 횟수 기록
+            this.k = k; // 말 이동으로 얼마 움직였는지
+            this.depth = depth; // 현재까지의 이동 횟수
         }
     }
 
     public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader br = new BufferedReader(new java.io.InputStreamReader(System.in));
         StringTokenizer st;
 
         K = Integer.parseInt(br.readLine());
@@ -31,7 +41,7 @@ public class Main {
         H = Integer.parseInt(st.nextToken());
 
         map = new int[H][W];
-        visited = new boolean[H][W][K + 1]; // 각 위치에서 사용 가능한 말의 움직임 횟수에 대해 방문 여부 체크
+        visited = new boolean[H][W][K + 1];
 
         for (int i = 0; i < H; i++) {
             st = new StringTokenizer(br.readLine());
@@ -41,47 +51,42 @@ public class Main {
         }
 
         System.out.println(bfs());
+
     }
 
-    public static int bfs() {
-        Queue<Point> queue = new LinkedList<>();
-        queue.offer(new Point(0, 0, K, 0));
+    private static int bfs() {
+        Queue<Point> q = new LinkedList<>();
+        q.offer(new Point(0, 0, K, 0));
         visited[0][0][K] = true;
 
-        while (!queue.isEmpty()) {
-            Point p = queue.poll();
-
-            // 목적지에 도달한 경우
-            if (p.x == H - 1 && p.y == W - 1) {
-                return p.depth;
+        while (!q.isEmpty()) {
+            Point current = q.poll();
+            if(current.x == H-1 && current.y == W-1) {
+                return current.depth;
             }
 
-            // 일반적인 네 방향 이동
-            for (int i = 0; i < 4; i++) {
-                int nx = p.x + dx[i];
-                int ny = p.y + dy[i];
-
-                if (nx >= 0 && ny >= 0 && nx < H && ny < W && !visited[nx][ny][p.k] && map[nx][ny] == 0) {
-                    visited[nx][ny][p.k] = true;
-                    queue.offer(new Point(nx, ny, p.k, p.depth + 1));
+            for(int i=0; i<4; i++) {
+                int nx = current.x + dx[i];
+                int ny = current.y + dy[i];
+                if (nx >= 0 && ny >= 0 && nx < H && ny < W && !visited[nx][ny][current.k] && map[nx][ny] == 0) {
+                    visited[nx][ny][current.k] = true;
+                    q.offer(new Point(nx, ny, current.k, current.depth + 1));
                 }
             }
-
-            // 말의 움직임 사용
-            if (p.k > 0) {
+            // 말 이동을 움직인경우
+            if (current.k > 0) {
                 for (int i = 0; i < 8; i++) {
-                    int nx = p.x + hx[i];
-                    int ny = p.y + hy[i];
-
-                    if (nx >= 0 && ny >= 0 && nx < H && ny < W && !visited[nx][ny][p.k - 1] && map[nx][ny] == 0) {
-                        visited[nx][ny][p.k - 1] = true;
-                        queue.offer(new Point(nx, ny, p.k - 1, p.depth + 1));
+                    int nx = current.x + hx[i];
+                    int ny = current.y + hy[i];
+                    
+                    if (nx >= 0 && ny >= 0 && nx < H && ny < W && !visited[nx][ny][current.k - 1] && map[nx][ny] == 0) {
+                        visited[nx][ny][current.k - 1] = true;
+                        q.offer(new Point(nx, ny, current.k - 1, current.depth + 1));
                     }
                 }
             }
         }
 
-        // 목적지에 도달할 수 없는 경우
         return -1;
     }
 }

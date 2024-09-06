@@ -18,7 +18,12 @@ public class Solution {
             // 한 변에 있는 숫자개수
             int length = N / 4;
 
-            Set<String> uniqueNum = new TreeSet<>();
+            TreeSet<String> uniqueNum = new TreeSet<>((a, b) -> {
+                int aInt = Integer.parseInt(a, 16);
+                int bInt = Integer.parseInt(b, 16);
+                return Integer.compare(bInt, aInt);
+            });
+
             // 숫자 배열을 회전시키면서 모든 숫자 세트 만듦
             for (int i = 0; i < length; i++) {
                 for (int j = 0; j < 4; j++) {
@@ -28,20 +33,19 @@ public class Solution {
                 input = input.substring(1) + input.charAt(0);
             }
 
-            List<String> sortedNum = new ArrayList<>(uniqueNum);
-
-            Collections.sort(sortedNum, (a, b) -> {
-                int aInt = Integer.parseInt(a, 16);
-                int bInt = Integer.parseInt(b, 16);
-                return Integer.compare(bInt, aInt);
-            });
-
-            int result = Integer.parseInt(sortedNum.get(K - 1), 16);
+            // TreeSet의 K번째 값을 찾음
+            int count = 0;
+            int result = 0;
+            for (String num : uniqueNum) {
+                if (++count == K) {
+                    result = Integer.parseInt(num, 16);
+                    break;
+                }
+            }
 
             sb.append("#").append(tc).append(" ").append(result).append("\n");
         }
 
         System.out.println(sb.toString());
-
     }
 }

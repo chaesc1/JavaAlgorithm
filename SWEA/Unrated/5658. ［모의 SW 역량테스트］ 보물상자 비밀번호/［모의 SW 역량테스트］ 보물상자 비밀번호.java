@@ -2,8 +2,6 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
-//27,492 kb
-//197 ms
 public class Solution {
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -12,32 +10,42 @@ public class Solution {
         int TC = Integer.parseInt(br.readLine());
 
         for (int tc = 1; tc <= TC; tc++) {
+            // 입력 파싱
             StringTokenizer st = new StringTokenizer(br.readLine());
             int N = Integer.parseInt(st.nextToken());
             int K = Integer.parseInt(st.nextToken());
             String input = br.readLine();
 
+            // 한 변에 있는 숫자 개수 (한 변의 길이)
             int length = N / 4;
 
-            // 모든 회전 상태의 숫자를 저장할 세트
-            Set<Integer> uniqueNumSet = new HashSet<>();
+            // 최대 상위 K개의 고유 숫자를 저장할 우선순위 큐
+            PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
 
+            // 모든 가능한 회전된 상태의 숫자를 넣기
             for (int i = 0; i < length; i++) {
                 for (int j = 0; j < 4; j++) {
                     String num = input.substring(j * length, (j + 1) * length);
-                    uniqueNumSet.add(Integer.parseInt(num, 16));
+                    pq.offer(Integer.parseInt(num, 16));
                 }
-
-                input = input.substring(N - 1) + input.substring(0, N - 1);
+                // 문자열 회전
+                input = input.substring(1) + input.charAt(0);
             }
 
-            // 숫자를 저장한 세트를 정렬된 리스트로 변환
-            List<Integer> sortedNumList = new ArrayList<>(uniqueNumSet);
-            sortedNumList.sort(Collections.reverseOrder());
+            // 고유 숫자 세트 사용
+            Set<Integer> uniqueNums = new HashSet<>(pq);
 
-            // 상위 K번째 값을 얻음
-            int result = sortedNumList.get(K - 1);
+            // 우선순위 큐 다시 초기화
+            pq.clear();
+            pq.addAll(uniqueNums);
 
+            // K번째 큰 값 꺼내기
+            int result = 0;
+            for (int i = 0; i < K; i++) {
+                result = pq.poll();
+            }
+
+            // 결과 기록
             sb.append("#").append(tc).append(" ").append(result).append("\n");
         }
 

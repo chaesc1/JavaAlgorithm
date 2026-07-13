@@ -6,29 +6,24 @@ import java.util.List;
 
 // 재귀 탐색으로 구현
 public class ex2_2 {
-    public boolean dfs(int[] arr, int target,int m,int start, List<Integer> selected) {
-        // basecase , 최송상태. 선택된 요소의 개수 가 M 일때
-        if (selected.size() == m) {
-            // 리스트 에 있는 모든 수 더해서 target 과 비교
-            int sum = 0;
-            for (int n : selected) {
-                sum += n;
-            }
+    public boolean dfs(int[] arr, int target,int m,int start, int sum, int depth) {
+        if (depth == m) {
             return sum == target;
         }
-        for (int i = start; i < arr.length; i++) {
-            selected.add(arr[i]);
-            if (dfs(arr, target, m, i, selected)) {
+        for (int i=start; i<arr.length; i++) {
+            sum += arr[i];
+            // 몇 개 고를지 를 알려줄 depth 변수 추가
+            if (dfs(arr, target, m, i+1, sum, depth+1)) {
                 return true;
             }
-            // 재귀 호출이 끝나면 원상 복구 해줘야한다.
-            selected.remove(selected.size()-1);
+            sum -= arr[i];
         }
         return false;
     }
 
     public boolean solution(int[] a, int target, int m) {
-        return dfs(a, target,m,0, new ArrayList<>());
+        // 리스트에서 m 개의 요소의 합이 target 이 되면 true 반환
+        return dfs(a, target,m,0,0,0);
     }
     public static void main(String[] args) {
         ex2_2 solution = new ex2_2();

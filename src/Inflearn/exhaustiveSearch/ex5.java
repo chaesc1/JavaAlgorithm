@@ -3,31 +3,29 @@ package Inflearn.exhaustiveSearch;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ex4 {
-    private List<List<Integer>> combination(int[] nums, int m) {
-        return dfs(nums, m, 0, new ArrayList<>());
+public class ex5 {
+    private List<List<Integer>> combination(int[] nums) {
+        return dfs(nums, new ArrayList<>(), 0);
     }
 
-    private List<List<Integer>> dfs(int[] nums, int m, int start, List<Integer> curr) {
+    private List<List<Integer>> dfs(int[] nums, List<Integer> curr, int idx) {
         List<List<Integer>> ans = new ArrayList<>();
-
-        /*if(curr.size() == m) {
+        // base case
+        if (idx == nums.length) {
             ans.add(new ArrayList<>(curr));
             return ans;
-        }*/
-        // 부분집합을 구할땐 매 순간 ans 에 추가해주면 된다. base case 필요 없음
-        ans.add(new ArrayList<>(curr));
-        for(int i = start; i < nums.length; i++) {
-            curr.add(nums[i]);
-            ans.addAll(dfs(nums, m, i + 1, curr));
-            curr.remove(curr.size() - 1);
         }
+        ans.addAll(dfs(nums, curr, idx+1));
+
+        curr.add(nums[idx]);
+        ans.addAll(dfs(nums, curr, idx+1));
+        curr.remove(curr.size()-1);
         return ans;
     }
 
 
     public static void main(String[] args) {
-        ex4 ex4 = new ex4();
-        System.out.println(ex4.combination(new int[]{1, 2, 3, 4}, 2));
+        ex5 ex5 = new ex5();
+        System.out.println(ex5.combination(new int[]{1, 2, 3, 4}));
     }
 }

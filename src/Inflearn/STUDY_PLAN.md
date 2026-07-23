@@ -20,6 +20,7 @@
 - [x] `datastructure` — 배열/해시맵/투포인터
 - [x] `exhaustiveSearch` — 완전탐색, DFS 백트래킹 기초
 - [x] `graph` — 명시적 그래프 BFS/DFS
+- [ ] `tree` — 이진/N진 트리 순회, 높이/지름, LCA, BST
 - [ ] `implicitGraph` — 상태공간 탐색 (잔돈교환류, 퍼즐 최단경로 등 그래프가 명시되지 않는 문제)
 - [ ] `sorting` — 정렬 응용, 커스텀 컴퍼레이터
 - [ ] `greedy` — 그리디 선택, 활동선택/구간 문제
